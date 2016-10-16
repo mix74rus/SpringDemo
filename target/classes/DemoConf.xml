@@ -7,8 +7,14 @@
         <constructor-arg name="beanBags" value="100"/>
     </bean>
 
+    <!--<bean name="poeticJuggler" class="org.lavrinovich.springinaction.package1.Performers.PoeticJuggler">-->
+        <!--<constructor-arg name="poem" ref="sonnet"/>-->
+    <!--</bean>-->
+    
     <bean name="poeticJuggler" class="org.lavrinovich.springinaction.package1.Performers.PoeticJuggler">
-        <constructor-arg name="poem" ref="sonnet"/>
+        <constructor-arg name="poem">
+            <bean class="org.lavrinovich.springinaction.package1.Other.Sonnet29"/>
+        </constructor-arg>
     </bean>
 
     <bean name="sonnet" class="org.lavrinovich.springinaction.package1.Other.Sonnet29"/>
@@ -18,5 +24,17 @@
         <property name="instrument" ref="guitar"/>
     </bean>
 
+    <bean name="oneManBand" class="org.lavrinovich.springinaction.package1.Performers.OneManBand">
+        <property name="instruments">
+            <list>
+                <ref bean="cymbal"/>
+                <ref bean="guitar"/>
+
+            </list>
+        </property>
+    </bean>
+
     <bean name="guitar" class="org.lavrinovich.springinaction.package1.Instruments.Guitar"/>
+    <bean name="cymbal" class="org.lavrinovich.springinaction.package1.Instruments.Cymbal"/>
+
 </beans>
