@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="juggler" class="org.lavrinovich.springinaction.package1.Performers.Juggler">
+        <constructor-arg name="beanBags" value="100"/>
+    </bean>
+
+    <bean name="poeticJuggler" class="org.lavrinovich.springinaction.package1.Performers.PoeticJuggler">
+        <constructor-arg name="poem" ref="sonnet"/>
+    </bean>
+
+    <bean name="sonnet" class="org.lavrinovich.springinaction.package1.Other.Sonnet29"/>
+
+    <bean name="instrumentalist" class="org.lavrinovich.springinaction.package1.Performers.Instrumentalist">
+        <property name="song" value="Beautiful Song"/>
+        <property name="instrument" ref="guitar"/>
+    </bean>
+
+    <bean name="guitar" class="org.lavrinovich.springinaction.package1.Instruments.Guitar"/>
+</beans>
