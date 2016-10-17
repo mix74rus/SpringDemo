@@ -1,40 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <bean name="juggler" class="org.lavrinovich.springinaction.package1.Performers.Juggler">
+    <context:annotation-config/>
+    <context:component-scan base-package="org.lavrinovich.springinaction.SpringExamples"/>
+    <aop:aspectj-autoproxy/>
+
+    <bean name="juggler" class="org.lavrinovich.springinaction.SpringExamples.Performers.Juggler">
         <constructor-arg name="beanBags" value="100"/>
     </bean>
 
-    <!--<bean name="poeticJuggler" class="org.lavrinovich.springinaction.package1.Performers.PoeticJuggler">-->
-        <!--<constructor-arg name="poem" ref="sonnet"/>-->
-    <!--</bean>-->
-    
-    <bean name="poeticJuggler" class="org.lavrinovich.springinaction.package1.Performers.PoeticJuggler">
+    <bean name="poeticJuggler" class="org.lavrinovich.springinaction.SpringExamples.Performers.PoeticJuggler">
         <constructor-arg name="poem">
-            <bean class="org.lavrinovich.springinaction.package1.Other.Sonnet29"/>
+            <bean class="org.lavrinovich.springinaction.SpringExamples.Other.Sonnet29"/>
         </constructor-arg>
     </bean>
 
-    <bean name="sonnet" class="org.lavrinovich.springinaction.package1.Other.Sonnet29"/>
+    <bean name="sonnet" class="org.lavrinovich.springinaction.SpringExamples.Other.Sonnet29"/>
 
-    <bean name="instrumentalist" class="org.lavrinovich.springinaction.package1.Performers.Instrumentalist">
+    <bean name="instrumentalist" class="org.lavrinovich.springinaction.SpringExamples.Performers.Instrumentalist">
         <property name="song" value="Beautiful Song"/>
         <property name="instrument" ref="guitar"/>
     </bean>
 
-    <bean name="oneManBand" class="org.lavrinovich.springinaction.package1.Performers.OneManBand">
+    <bean name="oneManBand" class="org.lavrinovich.springinaction.SpringExamples.Performers.OneManBand">
         <property name="instruments">
             <list>
                 <ref bean="cymbal"/>
                 <ref bean="guitar"/>
-
+                <ref bean="harmonica"/>
             </list>
         </property>
     </bean>
 
-    <bean name="guitar" class="org.lavrinovich.springinaction.package1.Instruments.Guitar"/>
-    <bean name="cymbal" class="org.lavrinovich.springinaction.package1.Instruments.Cymbal"/>
+    <bean name="guitar" class="org.lavrinovich.springinaction.SpringExamples.Instruments.Guitar"/>
+    <bean name="cymbal" class="org.lavrinovich.springinaction.SpringExamples.Instruments.Cymbal"/>
+    <bean name="harmonica" class="org.lavrinovich.springinaction.SpringExamples.Instruments.Harmonica"/>
+
 
 </beans>
