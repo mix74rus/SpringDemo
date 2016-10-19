@@ -20,6 +20,9 @@ import javax.validation.constraints.Size;
         @NamedQuery(name = Gallery.QUERY_FIND_ALL, query = "SELECT g FROM Gallery g ORDER BY g.name ASC"),
         @NamedQuery(name = Gallery.QUERY_FIND_BY_NAME, query = "SELECT g FROM Gallery g WHERE g.name = :name")
 })
+/**
+ * Пример Entity Bean
+ */
 public class Gallery implements Serializable {
 
     private static final long serialVersionUID = 1L;

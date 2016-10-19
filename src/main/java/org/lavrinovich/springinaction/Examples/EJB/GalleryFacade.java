@@ -10,6 +10,9 @@ import javax.ejb.*;
 
 @Stateless
 @LocalBean
+/**
+ * Пример Session Bean (Stateless) - Gallery Facade
+ */
 public class GalleryFacade {
 
     @EJB

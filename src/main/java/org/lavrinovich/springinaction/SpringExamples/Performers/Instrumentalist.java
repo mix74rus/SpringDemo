@@ -11,6 +11,10 @@ public class Instrumentalist implements Performer {
     private String song;
     private Instrument instrument;
 
+    void tuneInstrument() {
+        System.out.println("Instrument tuning");
+    }
+
     public void perform() throws PerformanceException {
         System.out.println("Playing: " + song + " : ");
         instrument.play();

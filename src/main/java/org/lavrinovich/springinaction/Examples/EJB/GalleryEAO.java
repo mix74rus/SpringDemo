@@ -14,6 +14,9 @@ import javax.persistence.PersistenceContext;
 
 @Stateless
 @LocalBean
+/**
+ * Пример Session Bean - Stateless EAO (Entity Access Object)
+ */
 public class GalleryEAO extends AbstractEAO<Gallery> {
 
     @PersistenceContext(unitName = "PersistenceUnit")

@@ -14,7 +14,7 @@
 
     <context:annotation-config/>
     <context:component-scan base-package="org.lavrinovich.springinaction.SpringExamples"/>
-    <aop:aspectj-autoproxy/>
+    <!--<aop:aspectj-autoproxy/>-->
 
     <bean name="juggler" class="org.lavrinovich.springinaction.SpringExamples.Performers.Juggler">
         <constructor-arg name="beanBags" value="100"/>
@@ -22,15 +22,17 @@
 
     <bean name="poeticJuggler" class="org.lavrinovich.springinaction.SpringExamples.Performers.PoeticJuggler">
         <constructor-arg name="poem">
-            <bean class="org.lavrinovich.springinaction.SpringExamples.Other.Sonnet29"/>
+            <bean class="org.lavrinovich.springinaction.SpringExamples.Other.Sonnet29">
+                <constructor-arg name="text" value="1234567"/>
+            </bean>
         </constructor-arg>
     </bean>
 
     <bean name="sonnet" class="org.lavrinovich.springinaction.SpringExamples.Other.Sonnet29"/>
 
-    <bean name="instrumentalist" class="org.lavrinovich.springinaction.SpringExamples.Performers.Instrumentalist">
+    <bean name="instrumentalist" class="org.lavrinovich.springinaction.SpringExamples.Performers.Instrumentalist" init-method="tuneInstrument">
         <property name="song" value="Beautiful Song"/>
-        <property name="instrument" ref="guitar"/>
+        <property name="instrument" ref="harmonica"/>
     </bean>
 
     <bean name="oneManBand" class="org.lavrinovich.springinaction.SpringExamples.Performers.OneManBand">

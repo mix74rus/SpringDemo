@@ -6,6 +6,9 @@ package org.lavrinovich.springinaction.Examples.EJB;
 import javax.ejb.ApplicationException;
 
 @ApplicationException(rollback=true)
+/**
+ * Пример Entity Bean
+ */
 public class GalleryNotFoundException extends Exception {
 
     public GalleryNotFoundException() {

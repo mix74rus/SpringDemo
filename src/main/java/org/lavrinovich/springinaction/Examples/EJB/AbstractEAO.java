@@ -10,6 +10,9 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+/**
+ * Пример Abstract EAO (Entity Access Object)
+ */
 public abstract class AbstractEAO<T extends Serializable> {
 
     protected abstract EntityManager getEntityManager();

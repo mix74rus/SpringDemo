@@ -5,7 +5,9 @@ package org.lavrinovich.springinaction.Examples.EJB;
  */
 import java.util.Date;
 import javax.persistence.PrePersist;
-
+/**
+ * Пример Entity Bean Listener
+ */
 public class GalleryListener {
 
     @PrePersist
